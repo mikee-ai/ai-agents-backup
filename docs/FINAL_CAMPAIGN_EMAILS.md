@@ -2,8 +2,8 @@
 
 ## Campaign: AI Agents - Make & Save Money (Max Outreach)
 
-**Campaign ID:** `1dfdc50b-465a-4cea-8a33-d80ef0a3e010`  
-**Dashboard:** https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+**Campaign ID:** `YOUR_CAMPAIGN_ID_HERE`  
+**Dashboard:** https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE
 
 ---
 
@@ -277,11 +277,11 @@ Best,
 
 **To add leads via CSV:**
 ```bash
-python3 bulk_lead_import.py --csv your_leads.csv --campaign-id 1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+python3 bulk_lead_import.py --csv your_leads.csv --campaign-id YOUR_CAMPAIGN_ID_HERE
 ```
 
 **To activate campaign:**
-Go to: https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010  
+Go to: https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE  
 Click: **"Resume campaign"**
 
 ---

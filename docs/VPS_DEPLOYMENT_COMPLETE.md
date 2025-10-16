@@ -2,7 +2,7 @@
 
 ## ✅ Current Status
 
-**VPS Location:** Hostinger (31.97.145.136)  
+**VPS Location:** Hostinger (YOUR_SERVER_IP)  
 **Agent Status:** ✅ **RUNNING**  
 **Current Task:** Importing 2,000 business owners  
 **Progress:** 43/2,000 (2.15%)  
@@ -42,7 +42,7 @@ The agent is now running 24/7 on your Hostinger VPS, automatically:
 ### View Live Logs
 
 ```bash
-ssh root@31.97.145.136 'tail -f /root/lead_agent/logs/*.log'
+ssh root@YOUR_SERVER_IP 'tail -f /root/lead_agent/logs/*.log'
 ```
 
 ### Auto-Refresh Monitor (Every 10 seconds)
@@ -74,7 +74,7 @@ The agent is configured to run automatically every day at **6:00 AM UTC** via cr
 ### View Cron Schedule
 
 ```bash
-ssh root@31.97.145.136 'crontab -l'
+ssh root@YOUR_SERVER_IP 'crontab -l'
 ```
 
 ### Cron Job
@@ -112,31 +112,31 @@ ssh root@31.97.145.136 'crontab -l'
 ### Start Agent Manually
 
 ```bash
-ssh root@31.97.145.136 'cd /root/lead_agent && python3 autonomous_lead_agent.py'
+ssh root@YOUR_SERVER_IP 'cd /root/lead_agent && python3 autonomous_lead_agent.py'
 ```
 
 ### Stop Agent
 
 ```bash
-ssh root@31.97.145.136 'pkill -f autonomous_lead_agent.py'
+ssh root@YOUR_SERVER_IP 'pkill -f autonomous_lead_agent.py'
 ```
 
 ### Restart Agent
 
 ```bash
-ssh root@31.97.145.136 'pkill -f autonomous_lead_agent.py && cd /root/lead_agent && nohup python3 autonomous_lead_agent.py > logs/restart.log 2>&1 &'
+ssh root@YOUR_SERVER_IP 'pkill -f autonomous_lead_agent.py && cd /root/lead_agent && nohup python3 autonomous_lead_agent.py > logs/restart.log 2>&1 &'
 ```
 
 ### Check if Running
 
 ```bash
-ssh root@31.97.145.136 'ps aux | grep autonomous_lead_agent | grep -v grep'
+ssh root@YOUR_SERVER_IP 'ps aux | grep autonomous_lead_agent | grep -v grep'
 ```
 
 ### View All Logs
 
 ```bash
-ssh root@31.97.145.136 'ls -lh /root/lead_agent/logs/'
+ssh root@YOUR_SERVER_IP 'ls -lh /root/lead_agent/logs/'
 ```
 
 ---
@@ -173,7 +173,7 @@ Apollo Credits Used: 43
 
 ### Instantly.ai
 - **API Key:** Configured ✓
-- **Campaign ID:** 1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+- **Campaign ID:** YOUR_CAMPAIGN_ID_HERE
 - **Campaign:** AI Agents - Make & Save Money
 
 ---
@@ -183,7 +183,7 @@ Apollo Credits Used: 43
 ### SSH Connection
 
 ```bash
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 ```
 
 **Password:** Kidessa231.@#
@@ -191,7 +191,7 @@ ssh root@31.97.145.136
 ### Or with sshpass
 
 ```bash
-sshpass -p 'Kidessa231.@#' ssh root@31.97.145.136
+sshpass -p 'Kidessa231.@#' ssh root@YOUR_SERVER_IP
 ```
 
 ---
@@ -209,7 +209,7 @@ sshpass -p 'Kidessa231.@#' ssh root@31.97.145.136
 ### Manual Monitoring (Optional)
 
 - Check progress: Run monitor script
-- View campaign: https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+- View campaign: https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE
 - Review replies: Check Instantly inbox
 
 ---
@@ -219,7 +219,7 @@ sshpass -p 'Kidessa231.@#' ssh root@31.97.145.136
 ### Instantly Campaign
 
 **Name:** AI Agents - Make & Save Money (Max Outreach)  
-**URL:** https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+**URL:** https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE
 
 **Email Sequence:**
 - Step 1: One-liner cold email (immediate)
@@ -238,10 +238,10 @@ sshpass -p 'Kidessa231.@#' ssh root@31.97.145.136
 
 ```bash
 # Check logs for errors
-ssh root@31.97.145.136 'tail -50 /root/lead_agent/logs/*.log'
+ssh root@YOUR_SERVER_IP 'tail -50 /root/lead_agent/logs/*.log'
 
 # Restart manually
-ssh root@31.97.145.136 'cd /root/lead_agent && python3 autonomous_lead_agent.py'
+ssh root@YOUR_SERVER_IP 'cd /root/lead_agent && python3 autonomous_lead_agent.py'
 ```
 
 ### No Leads Being Imported
@@ -264,10 +264,10 @@ ssh root@31.97.145.136 'cd /root/lead_agent && python3 autonomous_lead_agent.py'
 | Task | Command |
 |------|---------|
 | Monitor progress | `/home/ubuntu/monitor_vps_agent.sh` |
-| View live logs | `ssh root@31.97.145.136 'tail -f /root/lead_agent/logs/*.log'` |
-| Stop agent | `ssh root@31.97.145.136 'pkill -f autonomous_lead_agent.py'` |
-| Check cron | `ssh root@31.97.145.136 'crontab -l'` |
-| SSH to VPS | `ssh root@31.97.145.136` |
+| View live logs | `ssh root@YOUR_SERVER_IP 'tail -f /root/lead_agent/logs/*.log'` |
+| Stop agent | `ssh root@YOUR_SERVER_IP 'pkill -f autonomous_lead_agent.py'` |
+| Check cron | `ssh root@YOUR_SERVER_IP 'crontab -l'` |
+| SSH to VPS | `ssh root@YOUR_SERVER_IP` |
 
 ---
 

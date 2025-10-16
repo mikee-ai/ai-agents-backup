@@ -66,7 +66,7 @@ Your enhanced AI agent now includes:
 
 **Location:** `/root/lead_agent/autonomous_lead_agent_v2.py`
 
-**VPS:** 31.97.145.136 (Hostinger)
+**VPS:** YOUR_SERVER_IP (Hostinger)
 
 **Status:** Ready to run
 
@@ -78,7 +78,7 @@ Your enhanced AI agent now includes:
 
 ```bash
 # SSH to VPS
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 
 # Run the enhanced agent
 cd /root/lead_agent
@@ -100,7 +100,7 @@ python3 autonomous_lead_agent_v2.py
 
 ```bash
 # SSH to VPS
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 
 # Edit cron job
 crontab -e
@@ -210,7 +210,7 @@ You already have:
 
 ```bash
 # SSH to VPS
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 
 # View latest log
 tail -f /root/lead_agent/logs/agent_*.log
@@ -273,7 +273,7 @@ tail -100 /root/lead_agent/logs/agent_$(date +%Y%m%d).log
 
 ```bash
 # SSH to VPS
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 
 # Run test with 10 leads
 cd /root/lead_agent
@@ -372,7 +372,7 @@ INFRAMAIL_API_KEY = "inf_5773448b8c7d5625ae4ab7d4b3227f6d3a147c4a3e8d154d481f51d
 **Check:**
 ```bash
 # How many accounts in Instantly?
-curl -H "Authorization: Bearer YjUzNzFjY2EtZGNiNC00OTIzLTgxZGYtZDg1Nzc3YzY5OTg3OlRvZHBXZm9Fb2xqUA==" \
+curl -H "Authorization: Bearer YOUR_INSTANTLY_API_KEY_HERE" \
   https://api.instantly.ai/api/v2/accounts
 ```
 
@@ -470,7 +470,7 @@ After first run, you should have:
 
 ```bash
 # SSH to VPS
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 
 # Run agent now
 cd /root/lead_agent && python3 autonomous_lead_agent_v2.py

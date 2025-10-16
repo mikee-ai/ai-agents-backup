@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonship Bible - Read the Bible with Sonship Insights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Bible.com inspired colors - clean and minimal */
+            --primary: #2e7d32;
+            --primary-hover: #1b5e20;
+            --bg-white: #ffffff;
+            --bg-gray: #f5f5f5;
+            --bg-light-gray: #fafafa;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+            --text-light: #9e9e9e;
+            --border: #e0e0e0;
+            --border-light: #eeeeee;
+            --accent-gold: #ffa726;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: var(--bg-light-gray);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px var(--shadow);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .logo-icon {
+            font-size: 1.6rem;
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.6rem 1rem;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            font-size: 0.95rem;
+            background: var(--bg-gray);
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--bg-white);
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-light);
+        }
+
+        .header-stats {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 1rem;
+            white-space: nowrap;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 2rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--bg-white);
+            border-radius: 8px;
+            padding: 1rem;
+            height: fit-content;
+            position: sticky;
+            top: 80px;
+            box-shadow: 0 1px 3px var(--shadow);
+        }
+
+        .sidebar-header {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .book-list {
+            max-height: calc(100vh - 200px);
+            overflow-y: auto;
+        }
+
+        .book-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .book-list::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        .book-item {
+            padding: 0.6rem 0.75rem;
+            margin-bottom: 0.25rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+        }
+
+        .book-item:hover {
+            background: var(--bg-gray);
+            border-color: var(--border-light);
+        }
+
+        .book-item.active {
+            background: var(--primary);
+            color: white;
+            font-weight: 500;
+            border-color: var(--primary);
+        }
+
+        .book-progress {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        .book-item.active .book-progress {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: var(--bg-white);
+            border-radius: 8px;
+            padding: 2.5rem 3rem;
+            min-height: 600px;
+            box-shadow: 0 1px 3px var(--shadow);
+        }
+
+        /* Chapter Header */
+        .chapter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .chapter-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .chapter-nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg-white);
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn:hover:not(:disabled) {
+            background: var(--bg-gray);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* Verse */
+        .verse {
+            margin-bottom: 2rem;
+            padding: 0 0 1.5rem 0;
+        }
+
+        .verse-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .verse-number {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            min-width: 35px;
+            padding-top: 0.2rem;
+        }
+
+        .verse-actions {
+            display: flex;
+            gap: 0.25rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .verse:hover .verse-actions {
+            opacity: 1;
+        }
+
+        .icon-btn {
+            background: var(--bg-gray);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover {
+            background: var(--bg-white);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .verse-content {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .verse-text {
+            flex: 1;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        /* Commentary */
+        .commentary {
+            background: #fff8e1;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            margin-left: 35px;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .commentary-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        .commentary-icon {
+            font-size: 1rem;
+        }
+
+        .commentary-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-light);
+        }
+
+        .spinner {
+            border: 3px solid var(--border-light);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .main-content {
+                padding: 1.5rem;
+            }
+
+            .commentary {
+                margin-left: 0;
+            }
+
+            .header-stats {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">📖</span>
+                <span>Sonship Bible</span>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search verses and commentary...">
+            </div>
+            <div class="header-stats">
+                <span id="verseCount">📚 Loading...</span>
+                <span id="commentaryCount">💡 Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">📖 BOOKS</div>
+            <div class="book-list" id="bookList">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Loading books...
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="chapter-header">
+                <h1 class="chapter-title" id="chapterTitle">Select a book to begin</h1>
+                <div class="chapter-nav">
+                    <button class="btn" id="prevBtn" onclick="navigateChapter(-1)">← Previous</button>
+                    <button class="btn" id="nextBtn" onclick="navigateChapter(1)">Next →</button>
+                </div>
+            </div>
+
+            <div id="versesContainer">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Select a book from the sidebar to start reading
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let currentBook = null;
+        let currentChapter = null;
+        let books = [];
+
+        // Load books on page load
+        async function loadBooks() {
+            try {
+                const response = await fetch('/api/books');
+                const data = await response.json();
+                
+                if (data.success) {
+                    books = data.books;
+                    renderBooks(books);
+                    updateStats(books);
+                    
+                    // Load first available chapter of first book
+                    if (books.length > 0) {
+                        await loadFirstChapter(books[0].book);
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading books:', error);
+            }
+        }
+
+        // Load first available chapter for a book
+        async function loadFirstChapter(book) {
+            // Try chapters 1-50 until we find one with verses
+            for (let chapter = 1; chapter <= 50; chapter++) {
+                const response = await fetch(`/api/chapter/${book}/${chapter}`);
+                const data = await response.json();
+                
+                if (data.success && data.verses && data.verses.length > 0) {
+                    loadChapter(book, chapter);
+                    return;
+                }
+            }
+            
+            // If no chapters found, show message
+            document.getElementById('versesContainer').innerHTML = '<div class="loading">No verses available for this book yet.</div>';
+        }
+
+        // Render books in sidebar
+        function renderBooks(books) {
+            const bookList = document.getElementById('bookList');
+            bookList.innerHTML = books.map(book => {
+                const isActive = book.book === currentBook;
+                return `
+                    <div class="book-item ${isActive ? 'active' : ''}" 
+                         onclick="loadFirstChapter('${book.book}')">
+                        <div>${book.book}</div>
+                        <div class="book-progress">${book.verse_count} verses</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Update header stats
+        function updateStats(books) {
+            const totalVerses = books.reduce((sum, book) => sum + book.verse_count, 0);
+            const totalCommentary = books.reduce((sum, book) => sum + book.commentary_count, 0);
+            
+            document.getElementById('verseCount').textContent = `📚 ${totalVerses} verses`;
+            document.getElementById('commentaryCount').textContent = `💡 ${totalCommentary} with commentary`;
+        }
+
+        // Load chapter
+        async function loadChapter(book, chapter) {
+            currentBook = book;
+            currentChapter = chapter;
+            
+            // Update UI
+            document.getElementById('chapterTitle').textContent = `${book} ${chapter}`;
+            document.getElementById('versesContainer').innerHTML = '<div class="loading"><div class="spinner"></div>Loading chapter...</div>';
+            
+            // Update active book
+            renderBooks(books);
+            
+            try {
+                const response = await fetch(`/api/chapter/${book}/${chapter}`);
+                const data = await response.json();
+                
+                if (data.success && data.verses && data.verses.length > 0) {
+                    renderVerses(data.verses);
+                } else {
+                    document.getElementById('versesContainer').innerHTML = '<div class="loading">No verses found for this chapter.</div>';
+                }
+            } catch (error) {
+                console.error('Error loading chapter:', error);
+                document.getElementById('versesContainer').innerHTML = '<div class="loading">Error loading chapter. Please try again.</div>';
+            }
+        }
+
+        // Render verses
+        function renderVerses(verses) {
+            const container = document.getElementById('versesContainer');
+            
+            if (verses.length === 0) {
+                container.innerHTML = '<div class="loading">No verses found</div>';
+                return;
+            }
+            
+            container.innerHTML = verses.map(verse => `
+                <div class="verse">
+                    <div class="verse-header">
+                        <div class="verse-number">${verse.verse_number}</div>
+                        <div class="verse-actions">
+                            <button class="icon-btn" onclick="copyVerse('${currentBook} ${currentChapter}:${verse.verse_number}', \`${escapeHtml(verse.verse_text)}\`)" title="Copy verse">📋</button>
+                            <button class="icon-btn" onclick="shareVerse('${currentBook} ${currentChapter}:${verse.verse_number}')" title="Share verse">🔗</button>
+                        </div>
+                    </div>
+                    <div class="verse-content">
+                        <div class="verse-text">${verse.verse_text}</div>
+                    </div>
+                    ${verse.insight ? `
+                        <div class="commentary">
+                            <div class="commentary-header">
+                                <span class="commentary-icon">💡</span>
+                                <span>Sonship Insight</span>
+                            </div>
+                            <div class="commentary-text">${verse.insight}</div>
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Navigate chapters
+        async function navigateChapter(direction) {
+            const newChapter = currentChapter + direction;
+            if (newChapter < 1) return;
+            
+            // Try to load the chapter
+            const response = await fetch(`/api/chapter/${currentBook}/${newChapter}`);
+            const data = await response.json();
+            
+            if (data.success && data.verses && data.verses.length > 0) {
+                loadChapter(currentBook, newChapter);
+            } else {
+                // Try to find next available chapter
+                if (direction > 0) {
+                    for (let ch = newChapter + 1; ch <= newChapter + 10; ch++) {
+                        const r = await fetch(`/api/chapter/${currentBook}/${ch}`);
+                        const d = await r.json();
+                        if (d.success && d.verses && d.verses.length > 0) {
+                            loadChapter(currentBook, ch);
+                            return;
+                        }
+                    }
+                }
+                alert('No more chapters available.');
+            }
+        }
+
+        // Copy verse
+        function copyVerse(ref, text) {
+            const copyText = `${ref}\n"${text}"`;
+            navigator.clipboard.writeText(copyText).then(() => {
+                alert('Verse copied to clipboard!');
+            }).catch(err => {
+                console.error('Copy failed:', err);
+            });
+        }
+
+        // Share verse
+        function shareVerse(ref) {
+            const url = `${window.location.origin}/?ref=${encodeURIComponent(ref)}`;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('Link copied to clipboard!');
+            }).catch(err => {
+                console.error('Copy failed:', err);
+            });
+        }
+
+        // Escape HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Initialize
+        loadBooks();
+    </script>
+</body>
+</html>
+

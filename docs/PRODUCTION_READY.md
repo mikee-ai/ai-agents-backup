@@ -91,7 +91,7 @@ The agent will execute this automatically:
 SSH to your VPS and run a quick test:
 
 ```bash
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 
 cd /root/lead_agent
 
@@ -279,7 +279,7 @@ Your agent will create accounts across your 5 existing domains:
 
 ```bash
 # SSH to VPS
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 
 # View today's log
 tail -f /root/lead_agent/logs/agent_$(date +%Y%m%d).log
@@ -339,7 +339,7 @@ python3 autonomous_lead_agent_production.py
 **Check your plan:**
 
 ```bash
-curl -H "Authorization: Bearer YjUzNzFjY2EtZGNiNC00OTIzLTgxZGYtZDg1Nzc3YzY5OTg3OlRvZHBXZm9Fb2xqUA==" \
+curl -H "Authorization: Bearer YOUR_INSTANTLY_API_KEY_HERE" \
   https://api.instantly.ai/api/v2/account
 ```
 
@@ -402,7 +402,7 @@ Your **fully autonomous lead generation system** is ready:
 ## 🚀 Start Now
 
 ```bash
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 cd /root/lead_agent
 python3 autonomous_lead_agent_production.py
 ```

@@ -108,7 +108,7 @@ If you have your own domains:
 
 **Steps to Activate:**
 
-1. Go to: https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+1. Go to: https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE
 2. Click "Launch" or "Resume Campaign"
 3. Verify settings:
    - ✅ Email accounts connected
@@ -399,7 +399,7 @@ Set: 200-400 emails/day per account
 
 ```
 Wait for lead import to complete (check progress)
-Go to: https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+Go to: https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE
 Click: "Launch" or "Resume"
 ```
 

@@ -4,7 +4,7 @@
 
 ### Access Your Dashboard
 
-**URL:** http://31.97.145.136:8080
+**URL:** http://YOUR_SERVER_IP:8080
 
 Just open this in your browser and watch your AI agent work in real-time!
 
@@ -105,7 +105,7 @@ Just open this in your browser and watch your AI agent work in real-time!
 ## 🛠️ Technical Details
 
 ### Server
-- **Host:** 31.97.145.136
+- **Host:** YOUR_SERVER_IP
 - **Port:** 8080
 - **Framework:** Flask (Python)
 - **Auto-restart:** Runs in background
@@ -144,7 +144,7 @@ Just open this in your browser and watch your AI agent work in real-time!
 ## 🚀 Quick Start
 
 1. **Open browser**
-2. **Go to:** http://31.97.145.136:8080
+2. **Go to:** http://YOUR_SERVER_IP:8080
 3. **Watch the magic happen!**
 
 ---

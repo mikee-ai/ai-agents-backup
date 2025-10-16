@@ -319,7 +319,7 @@ python3 update_campaign_timing.py --delay-days 2
 
 ```python
 # I'll run this to import your leads
-python3 bulk_lead_import.py --csv apollo_leads.csv --campaign-id 1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+python3 bulk_lead_import.py --csv apollo_leads.csv --campaign-id YOUR_CAMPAIGN_ID_HERE
 ```
 
 ### 4. Monitor & Optimize 📊

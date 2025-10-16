@@ -171,13 +171,13 @@ python3.11 apollo_business_owners_importer.py --daily-limit 500 --location "Flor
 **Check Apollo API Key:**
 ```bash
 curl -X POST "https://api.apollo.io/api/v1/auth/health" \
-  -H "X-Api-Key: zkZ9TI5jBY2ZkqxiZwof1g"
+  -H "X-Api-Key: YOUR_APOLLO_API_KEY_HERE"
 ```
 
 **Check Instantly API Key:**
 ```bash
-curl -H "Authorization: Bearer YjUzNzFjY2EtZGNiNC00OTIzLTgxZGYtZDg1Nzc3YzY5OTg3OlRvZHBXZm9Fb2xqUA==" \
-  "https://api.instantly.ai/api/v2/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010"
+curl -H "Authorization: Bearer YOUR_INSTANTLY_API_KEY_HERE" \
+  "https://api.instantly.ai/api/v2/campaigns/YOUR_CAMPAIGN_ID_HERE"
 ```
 
 **View Import Logs:**
@@ -221,7 +221,7 @@ crontab -e
 ```
 
 ### 3. Monitor Campaign Performance
-- Dashboard: https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/analytics
+- Dashboard: https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE/analytics
 - Check open rates, reply rates, bounce rates
 - Respond to interested leads
 
@@ -269,7 +269,7 @@ crontab -e
 **Instantly API Key:**
 - Stored in: `apollo_business_owners_importer.py`
 - Type: Bearer token
-- Campaign ID: `1dfdc50b-465a-4cea-8a33-d80ef0a3e010`
+- Campaign ID: `YOUR_CAMPAIGN_ID_HERE`
 
 **Important:** Keep these files secure, don't share publicly
 

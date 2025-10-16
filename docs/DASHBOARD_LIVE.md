@@ -3,19 +3,19 @@
 ## 🌐 Access Your Dashboard
 
 ### Primary URL (Works Now!)
-**http://31.97.145.136:8090**
+**http://YOUR_SERVER_IP:8090**
 
 ### Custom Domain (Requires Setup)
 **http://cold-email-agent.mikee.ai:8090**
 
-Since you have a wildcard DNS (`*.mikee.ai → 31.97.145.136`), the custom domain should work immediately!
+Since you have a wildcard DNS (`*.mikee.ai → YOUR_SERVER_IP`), the custom domain should work immediately!
 
 ---
 
 ## ✅ What's Running
 
 **Dashboard Server:**
-- Host: 31.97.145.136
+- Host: YOUR_SERVER_IP
 - Port: 8090
 - Status: ✅ LIVE
 - Updates: Every 3 seconds
@@ -33,7 +33,7 @@ Since you have a wildcard DNS (`*.mikee.ai → 31.97.145.136`), the custom domai
 
 **Option 1: IP Address**
 ```
-http://31.97.145.136:8090
+http://YOUR_SERVER_IP:8090
 ```
 
 **Option 2: Custom Domain**

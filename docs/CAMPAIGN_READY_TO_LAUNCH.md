@@ -4,9 +4,9 @@
 
 Your cold email campaign has been successfully created and configured on Instantly.ai with professional, high-converting copy designed to help businesses understand how AI agents can make or save them money.
 
-**Campaign ID:** `1dfdc50b-465a-4cea-8a33-d80ef0a3e010`
+**Campaign ID:** `YOUR_CAMPAIGN_ID_HERE`
 
-**Dashboard:** https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+**Dashboard:** https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE
 
 ---
 
@@ -215,7 +215,7 @@ You have several options:
 
 #### Option B: API Import (Automated)
 ```bash
-python3 bulk_lead_import.py --csv your_leads.csv --campaign-id 1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+python3 bulk_lead_import.py --csv your_leads.csv --campaign-id YOUR_CAMPAIGN_ID_HERE
 ```
 
 #### Option C: Manual Entry
@@ -225,7 +225,7 @@ python3 bulk_lead_import.py --csv your_leads.csv --campaign-id 1dfdc50b-465a-4ce
 ### 2. Customize the Email Copy
 
 **Replace `[Your Name]` with your actual name/signature:**
-- Go to: https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/sequences
+- Go to: https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE/sequences
 - Click on each email variant
 - Replace `[Your Name]` with your signature
 - Add any additional personalization
@@ -260,7 +260,7 @@ Mike
 **Two ways to activate:**
 
 #### Option A: Via Dashboard (Recommended)
-1. Go to: https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+1. Go to: https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE
 2. Click the green **"Resume campaign"** button
 
 #### Option B: Via API
@@ -268,8 +268,8 @@ Mike
 import requests
 
 response = requests.post(
-    "https://api.instantly.ai/api/v2/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/activate",
-    headers={"Authorization": "Bearer YjUzNzFjY2EtZGNiNC00OTIzLTgxZGYtZDg1Nzc3YzY5OTg3OlRvZHBXZm9Fb2xqUA=="}
+    "https://api.instantly.ai/api/v2/campaigns/YOUR_CAMPAIGN_ID_HERE/activate",
+    headers={"Authorization": "Bearer YOUR_INSTANTLY_API_KEY_HERE"}
 )
 ```
 
@@ -413,10 +413,10 @@ sarah@agency.com,Sarah,Johnson,Marketing Agency,Your agency's client portfolio i
 - **API Docs:** https://developer.instantly.ai
 
 ### Your Campaign Links
-- **Campaign Dashboard:** https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010
-- **Sequences:** https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/sequences
-- **Analytics:** https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/analytics
-- **Leads:** https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/leads
+- **Campaign Dashboard:** https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE
+- **Sequences:** https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE/sequences
+- **Analytics:** https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE/analytics
+- **Leads:** https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE/leads
 
 ---
 

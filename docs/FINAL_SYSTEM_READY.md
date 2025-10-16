@@ -25,7 +25,7 @@
 - Looks legitimate and trustworthy
 
 **5. Deployed on VPS** ✅
-- Running on Hostinger VPS (31.97.145.136)
+- Running on Hostinger VPS (YOUR_SERVER_IP)
 - Can run 24/7 automatically
 - Fully autonomous
 
@@ -99,7 +99,7 @@ Your agent will create accounts like:
 ### Option 1: Run Day 1 Now (30 min)
 
 ```bash
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 
 cd /root/lead_agent
 python3 autonomous_lead_agent.py
@@ -116,7 +116,7 @@ python3 autonomous_lead_agent.py
 ### Option 2: Enable Daily Automation
 
 ```bash
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 
 crontab -e
 
@@ -177,22 +177,22 @@ crontab -e
 ### Check Today's Progress
 
 ```bash
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 
 # View live log
 tail -f /root/lead_agent/logs/agent_$(date +%Y%m%d).log
 
 # Check how many accounts exist
-curl -s -X GET "https://app.inframail.io/api/v1/host/operations/email?hostOrderId=1755058187025&customerId=31761933&profileId=2b25dd6a-7c8a-42ba-aabf-23780350b865" \
-  -H "x-api-key: inf_5721608913cf5d15e4fddb7b8e3257f03d3b7c47ce3b0f5418335f5b13059e1a" \
+curl -s -X GET "https://app.inframail.io/api/v1/host/operations/email?hostOrderId=YOUR_HOST_ORDER_ID_HERE&customerId=YOUR_CUSTOMER_ID_HERE&profileId=YOUR_PROFILE_ID_HERE" \
+  -H "x-api-key: YOUR_INFRAMAIL_API_KEY_HERE" \
   | jq '.emails | length'
 ```
 
 ### View Campaign
 
-**Dashboard:** https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+**Dashboard:** https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE
 
-**Analytics:** https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/analytics
+**Analytics:** https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE/analytics
 
 ---
 
@@ -251,7 +251,7 @@ curl -s -X GET "https://app.inframail.io/api/v1/host/operations/email?hostOrderI
 ## 🔥 Quick Start Command
 
 ```bash
-ssh root@31.97.145.136 && cd /root/lead_agent && python3 autonomous_lead_agent.py
+ssh root@YOUR_SERVER_IP && cd /root/lead_agent && python3 autonomous_lead_agent.py
 ```
 
 **Run this now and watch your email empire build itself!**

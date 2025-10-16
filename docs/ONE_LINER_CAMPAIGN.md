@@ -2,8 +2,8 @@
 
 ## Campaign: Custom AI Agents & Solutions
 
-**Campaign ID:** `1dfdc50b-465a-4cea-8a33-d80ef0a3e010`  
-**Dashboard:** https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+**Campaign ID:** `YOUR_CAMPAIGN_ID_HERE`  
+**Dashboard:** https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE
 
 **From:** Mikee Shattuck, Founder, Mikee.ai
 
@@ -363,15 +363,15 @@ Then optimize by:
 
 ### Add Leads via CSV
 ```bash
-python3 bulk_lead_import.py --csv leads.csv --campaign-id 1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+python3 bulk_lead_import.py --csv leads.csv --campaign-id YOUR_CAMPAIGN_ID_HERE
 ```
 
 ### Activate Campaign
-Go to: https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010  
+Go to: https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE  
 Click: **"Resume campaign"**
 
 ### View Analytics
-https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/analytics
+https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE/analytics
 
 ---
 

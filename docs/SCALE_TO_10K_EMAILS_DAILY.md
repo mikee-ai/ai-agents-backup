@@ -184,7 +184,7 @@ DAILY_IMPORT_LIMIT = 10000  # Changed from 2000
 
 ```bash
 # Edit the file on VPS
-ssh root@31.97.145.136 'nano /root/lead_agent/autonomous_lead_agent.py'
+ssh root@YOUR_SERVER_IP 'nano /root/lead_agent/autonomous_lead_agent.py'
 
 # Change: DAILY_IMPORT_LIMIT = 2000
 # To: DAILY_IMPORT_LIMIT = 10000
@@ -396,7 +396,7 @@ ssh root@31.97.145.136 'nano /root/lead_agent/autonomous_lead_agent.py'
 
 5. **Update Agent**
    ```bash
-   ssh root@31.97.145.136
+   ssh root@YOUR_SERVER_IP
    nano /root/lead_agent/autonomous_lead_agent.py
    # Change DAILY_IMPORT_LIMIT = 10000
    ```

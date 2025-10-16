@@ -184,7 +184,7 @@ The agent is already on your VPS at:
 
 ```bash
 # SSH to VPS
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 
 # Test with 10 leads
 cd /root/lead_agent
@@ -294,7 +294,7 @@ crontab -e
 
 ```bash
 # How many accounts can you have?
-curl -H "Authorization: Bearer YjUzNzFjY2EtZGNiNC00OTIzLTgxZGYtZDg1Nzc3YzY5OTg3OlRvZHBXZm9Fb2xqUA==" \
+curl -H "Authorization: Bearer YOUR_INSTANTLY_API_KEY_HERE" \
   https://api.instantly.ai/api/v2/account/limits
 ```
 
@@ -515,7 +515,7 @@ After Day 5, you should have:
 
 ```bash
 # SSH to VPS
-ssh root@31.97.145.136
+ssh root@YOUR_SERVER_IP
 
 # Run agent now
 cd /root/lead_agent
@@ -525,7 +525,7 @@ python3 autonomous_lead_agent_safe_ramp.py
 tail -f /root/lead_agent/logs/agent_*.log
 
 # Check accounts in Instantly
-curl -H "Authorization: Bearer YjUzNzFjY2EtZGNiNC00OTIzLTgxZGYtZDg1Nzc3YzY5OTg3OlRvZHBXZm9Fb2xqUA==" \
+curl -H "Authorization: Bearer YOUR_INSTANTLY_API_KEY_HERE" \
   https://api.instantly.ai/api/v2/accounts | jq length
 
 # View cron jobs

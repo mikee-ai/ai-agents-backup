@@ -3,9 +3,9 @@
 ## Campaign Status: ACTIVE
 
 **Campaign Name:** AI Agents - Make & Save Money (Max Outreach)  
-**Campaign ID:** `1dfdc50b-465a-4cea-8a33-d80ef0a3e010`  
+**Campaign ID:** `YOUR_CAMPAIGN_ID_HERE`  
 **Status:** Active (Status Code: 1)  
-**Dashboard:** https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+**Dashboard:** https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE
 
 ---
 
@@ -120,11 +120,11 @@ Any new leads added to the campaign will automatically enter the sequence and re
 
 ### Option 1: Via API Script
 ```bash
-python3 bulk_lead_import.py --csv your_leads.csv --campaign-id 1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+python3 bulk_lead_import.py --csv your_leads.csv --campaign-id YOUR_CAMPAIGN_ID_HERE
 ```
 
 ### Option 2: Via Dashboard
-1. Go to: https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/leads
+1. Go to: https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE/leads
 2. Click "Add Leads" or "Import CSV"
 3. Upload your lead list
 
@@ -137,12 +137,12 @@ lead_data = {
     "first_name": "Jane",
     "last_name": "Doe",
     "company_name": "Example Corp",
-    "campaign": "1dfdc50b-465a-4cea-8a33-d80ef0a3e010"
+    "campaign": "YOUR_CAMPAIGN_ID_HERE"
 }
 
 response = requests.post(
     "https://api.instantly.ai/api/v2/leads",
-    headers={"Authorization": "Bearer YjUzNzFjY2EtZGNiNC00OTIzLTgxZGYtZDg1Nzc3YzY5OTg3OlRvZHBXZm9Fb2xqUA=="},
+    headers={"Authorization": "Bearer YOUR_INSTANTLY_API_KEY_HERE"},
     json=lead_data
 )
 ```
@@ -154,16 +154,16 @@ response = requests.post(
 ### Key Dashboards
 
 **Campaign Overview:**  
-https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010
+https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE
 
 **Analytics:**  
-https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/analytics
+https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE/analytics
 
 **Leads:**  
-https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/leads
+https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE/leads
 
 **Sequences:**  
-https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/sequences
+https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE/sequences
 
 ### Metrics to Watch
 
@@ -180,16 +180,16 @@ https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/sequ
 
 ### Pause Campaign
 ```bash
-curl -X POST -H "Authorization: Bearer YjUzNzFjY2EtZGNiNC00OTIzLTgxZGYtZDg1Nzc3YzY5OTg3OlRvZHBXZm9Fb2xqUA==" \
+curl -X POST -H "Authorization: Bearer YOUR_INSTANTLY_API_KEY_HERE" \
   -H "Content-Type: application/json" -d '{}' \
-  "https://api.instantly.ai/api/v2/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/pause"
+  "https://api.instantly.ai/api/v2/campaigns/YOUR_CAMPAIGN_ID_HERE/pause"
 ```
 
 ### Resume Campaign
 ```bash
-curl -X POST -H "Authorization: Bearer YjUzNzFjY2EtZGNiNC00OTIzLTgxZGYtZDg1Nzc3YzY5OTg3OlRvZHBXZm9Fb2xqUA==" \
+curl -X POST -H "Authorization: Bearer YOUR_INSTANTLY_API_KEY_HERE" \
   -H "Content-Type: application/json" -d '{}' \
-  "https://api.instantly.ai/api/v2/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010/activate"
+  "https://api.instantly.ai/api/v2/campaigns/YOUR_CAMPAIGN_ID_HERE/activate"
 ```
 
 ---
@@ -229,8 +229,8 @@ The current 5 leads use `.example` domains and won't receive actual emails. Repl
 
 ## Quick Reference
 
-**Campaign ID:** `1dfdc50b-465a-4cea-8a33-d80ef0a3e010`  
-**API Key:** `YjUzNzFjY2EtZGNiNC00OTIzLTgxZGYtZDg1Nzc3YzY5OTg3OlRvZHBXZm9Fb2xqUA==`  
+**Campaign ID:** `YOUR_CAMPAIGN_ID_HERE`  
+**API Key:** `YOUR_INSTANTLY_API_KEY_HERE`  
 **Status:** Active  
 **Steps:** 30  
 **Delay:** 1 minute  
