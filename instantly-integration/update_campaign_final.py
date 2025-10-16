@@ -9,9 +9,9 @@ import requests
 import json
 
 # API Configuration
-API_KEY = "YjUzNzFjY2EtZGNiNC00OTIzLTgxZGYtZDg1Nzc3YzY5OTg3OlRvZHBXZm9Fb2xqUA=="
+API_KEY = "YOUR_INSTANTLY_API_KEY_HERE"
 BASE_URL = "https://api.instantly.ai/api/v2"
-CAMPAIGN_ID = "1dfdc50b-465a-4cea-8a33-d80ef0a3e010"
+CAMPAIGN_ID = "YOUR_CAMPAIGN_ID_HERE"
 
 HEADERS = {
     "Authorization": f"Bearer {API_KEY}",

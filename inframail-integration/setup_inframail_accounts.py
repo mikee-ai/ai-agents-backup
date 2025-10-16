@@ -187,7 +187,7 @@ def main():
     print("   • Total: 2,000 emails/day")
     print()
     print("5. 🚀 Activate your campaign:")
-    print("   https://app.instantly.ai/app/campaigns/1dfdc50b-465a-4cea-8a33-d80ef0a3e010")
+    print("   https://app.instantly.ai/app/campaigns/YOUR_CAMPAIGN_ID_HERE")
     print()
     print("=" * 70)
     print()

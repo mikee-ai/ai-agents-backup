@@ -9,7 +9,7 @@ import json
 from datetime import datetime
 
 # API Configuration - DO NOT DECODE, use the base64 string directly
-API_KEY = "YjUzNzFjY2EtZGNiNC00OTIzLTgxZGYtZDg1Nzc3YzY5OTg3OlRvZHBXZm9Fb2xqUA=="
+API_KEY = "YOUR_INSTANTLY_API_KEY_HERE"
 BASE_URL = "https://api.instantly.ai/api/v2"
 HEADERS = {
     "Authorization": f"Bearer {API_KEY}",
