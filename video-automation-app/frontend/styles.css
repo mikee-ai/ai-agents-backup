@@ -1,0 +1,140 @@
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #f4f4f6;
+  background-color: #0b1020;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #202c55, #0b1020 60%);
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: rgba(20, 26, 48, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 50px rgba(3, 7, 18, 0.5);
+}
+
+#upload-form .field,
+#upload-form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#upload-form input,
+#upload-form textarea,
+#upload-form button {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background: rgba(12, 16, 32, 0.9);
+  color: #f4f4f6;
+}
+
+#upload-form textarea {
+  resize: vertical;
+}
+
+#upload-form button.primary {
+  background: linear-gradient(135deg, #5c6af1, #8f6afc);
+  border: none;
+  cursor: pointer;
+  transition: transform 150ms ease;
+}
+
+#upload-form button.primary:disabled,
+#upload-form.is-submitting button.primary {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#upload-form button.primary:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+.platform-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.platform-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-list li {
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  margin-left: 0.5rem;
+  padding-left: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.timeline-list strong {
+  display: block;
+  color: #76f0ff;
+}
+
+.empty-state {
+  opacity: 0.7;
+}
+
+.feedback {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+}
+
+.feedback.success {
+  background: rgba(76, 175, 80, 0.2);
+  border: 1px solid rgba(76, 175, 80, 0.4);
+}
+
+.feedback.error {
+  background: rgba(244, 67, 54, 0.2);
+  border: 1px solid rgba(244, 67, 54, 0.4);
+}
+
+.feedback.info {
+  background: rgba(33, 150, 243, 0.2);
+  border: 1px solid rgba(33, 150, 243, 0.4);
+}
+
+.job-ref {
+  opacity: 0.8;
+  font-size: 0.85rem;
+}

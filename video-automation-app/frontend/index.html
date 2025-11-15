@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video Automation Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header>
+        <h1>Video Automation Studio</h1>
+        <p>Upload once, share everywhere. Push your reels to Google Drive and fire a GetLate blast.</p>
+      </header>
+      <main class="layout-grid">
+        <section class="card">
+          <h2>Upload &amp; Schedule</h2>
+          <form id="upload-form">
+            <label class="field">
+              <span>Video file</span>
+              <input type="file" id="video" accept="video/mp4,video/quicktime" required />
+            </label>
+
+            <label class="field">
+              <span>Caption</span>
+              <textarea id="caption" rows="4" placeholder="What should the post say?"></textarea>
+            </label>
+
+            <fieldset class="field">
+              <legend>Platforms</legend>
+              <div class="platform-grid" id="platform-grid"></div>
+            </fieldset>
+
+            <label class="field">
+              <span>Schedule (optional)</span>
+              <input type="datetime-local" id="schedule" />
+            </label>
+
+            <button class="primary" type="submit">Upload to Drive &amp; Launch</button>
+            <p id="feedback" class="feedback" hidden></p>
+          </form>
+        </section>
+        <section class="card timeline">
+          <h2>Recent Automations</h2>
+          <ol id="timeline" class="timeline-list"></ol>
+        </section>
+      </main>
+    </div>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

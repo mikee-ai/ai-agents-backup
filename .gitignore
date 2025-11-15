@@ -26,3 +26,11 @@ Thumbs.db
 *config.py
 !config.template.py
 
+
+# Node
+node_modules/
+.vite/
+*.tsbuildinfo
+
+# Env files
+*.env
