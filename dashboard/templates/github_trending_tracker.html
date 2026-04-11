@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Trending Tracker</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#0b1020; color:#e9eefc; margin:0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; }
+    .sub { opacity: .8; margin-bottom: 20px; }
+    .controls { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
+    select, input, button { padding:10px; border-radius:8px; border:1px solid #334; background:#141b34; color:#e9eefc; }
+    button { cursor:pointer; background:#335dff; border:none; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fill,minmax(320px,1fr)); gap:14px; }
+    .card { background:#151c38; border:1px solid #27305a; border-radius:12px; padding:14px; }
+    .name { font-weight:bold; font-size:1.05rem; margin-bottom:8px; }
+    .meta { font-size:.9rem; opacity:.85; display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+    .desc { min-height:46px; }
+    .topic { display:inline-block; background:#263b8f; border-radius:999px; padding:2px 8px; font-size:.75rem; margin:6px 6px 0 0; }
+    a { color:#9dc2ff; text-decoration:none; }
+    .status { margin: 10px 0 20px; opacity:.85; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔥 GitHub Trending Tracker</h1>
+    <div class="sub">Track the fastest-growing repositories from recent days.</div>
+
+    <div class="controls">
+      <select id="language">
+        <option value="python">Python</option>
+        <option value="javascript">JavaScript</option>
+        <option value="typescript">TypeScript</option>
+        <option value="go">Go</option>
+        <option value="rust">Rust</option>
+        <option value="java">Java</option>
+        <option value="all">All Languages</option>
+      </select>
+      <input id="days" type="number" value="7" min="1" max="30" />
+      <input id="limit" type="number" value="12" min="1" max="50" />
+      <button id="refresh">Refresh</button>
+    </div>
+
+    <div class="status" id="status">Loading…</div>
+    <div class="grid" id="repo-grid"></div>
+  </div>
+
+  <script>
+    const statusEl = document.getElementById('status');
+    const gridEl = document.getElementById('repo-grid');
+
+    async function loadTrending() {
+      const language = document.getElementById('language').value;
+      const days = document.getElementById('days').value;
+      const limit = document.getElementById('limit').value;
+
+      statusEl.textContent = 'Fetching trending repositories...';
+      gridEl.innerHTML = '';
+
+      try {
+        const res = await fetch(`/api/trending?language=${encodeURIComponent(language)}&days=${days}&limit=${limit}`);
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || data.error || 'Failed to load data');
+
+        const ts = new Date(data.timestamp).toLocaleString();
+        statusEl.textContent = `Showing ${data.count} repos • Language: ${data.language} • Window: ${data.days} days • Updated: ${ts}`;
+
+        data.repositories.forEach((repo) => {
+          const topics = (repo.topics || []).slice(0, 4).map((t) => `<span class="topic">${t}</span>`).join('');
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <div class="name"><a href="${repo.url}" target="_blank" rel="noopener noreferrer">${repo.full_name}</a></div>
+            <div class="desc">${repo.description}</div>
+            <div>${topics}</div>
+            <div class="meta">
+              <span>⭐ ${repo.stars.toLocaleString()}</span>
+              <span>🍴 ${repo.forks.toLocaleString()}</span>
+              <span>🐞 ${repo.open_issues.toLocaleString()}</span>
+              <span>🧪 ${repo.language}</span>
+            </div>
+          `;
+          gridEl.appendChild(card);
+        });
+      } catch (err) {
+        statusEl.textContent = `Error: ${err.message}`;
+      }
+    }
+
+    document.getElementById('refresh').addEventListener('click', loadTrending);
+    loadTrending();
+  </script>
+</body>
+</html>
